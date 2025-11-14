@@ -118,7 +118,7 @@ export default function Hero() {
               {/* Image Container */}
               <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-purple-300/50 shadow-[0_0_40px_rgba(147,51,234,0.3),0_0_80px_rgba(168,85,247,0.2)] mx-auto lg:mx-0">
                 <Image
-                  src="/hero-image.jpg"
+                  src="/am.jpeg"
                   alt="Profile"
                   fill
                   className="object-cover"
