@@ -15,9 +15,9 @@ export default function Card({ children, className = "", onClick }: CardProps) {
     <motion.div
       {...hoverLift}
       onClick={onClick}
-      className={`glass rounded-2xl p-6 md:p-8 backdrop-blur-sm border border-white/10 hover:border-cyan-400/30 transition-all duration-300 ${className}`}
+      className={`glass rounded-xl md:rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-sm border border-purple-200/50 hover:border-purple-400/70 transition-all duration-300 ${className}`}
       style={{
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 245, 255, 0.05)'
+        boxShadow: '0 8px 32px rgba(147, 51, 234, 0.1), 0 0 20px rgba(168, 85, 247, 0.05)'
       }}
     >
       {children}

@@ -54,27 +54,27 @@ export default function Navigation() {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-black/90 backdrop-blur-md border-b border-cyan-500/20 shadow-[0_4px_30px_rgba(0,245,255,0.1)]"
+            ? "bg-white/95 backdrop-blur-md border-b border-purple-200 shadow-[0_4px_30px_rgba(147,51,234,0.1)]"
             : "bg-transparent"
         }`}
       >
         <div className="professional-container">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16 md:h-20">
             <motion.a
               href="#home"
               onClick={(e) => {
                 e.preventDefault();
                 handleNavClick("#home");
               }}
-              className="text-2xl md:text-3xl font-bold gradient-text tracking-tight"
+              className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text tracking-tight"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Portfolio<span className="text-white">X</span>
+              Portfolio<span className="text-purple-600">X</span>
             </motion.a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden lg:flex items-center space-x-1">
               {navItems.map((item) => (
                 <motion.a
                   key={item.name}
@@ -85,8 +85,8 @@ export default function Navigation() {
                   }}
                   className={`relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg ${
                     activeSection === item.href.substring(1)
-                      ? "text-cyan-400 neon-glow-cyan bg-cyan-500/10"
-                      : "text-gray-300 hover:text-cyan-400 hover:bg-cyan-500/5"
+                      ? "text-purple-600 neon-glow-cyan bg-purple-100"
+                      : "text-gray-600 hover:text-purple-600 hover:bg-purple-50"
                   }`}
                   whileHover={{ y: -2 }}
                 >
@@ -94,7 +94,7 @@ export default function Navigation() {
                   {activeSection === item.href.substring(1) && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 shadow-[0_0_10px_rgba(0,245,255,0.6)]"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-400 shadow-[0_0_10px_rgba(147,51,234,0.4)]"
                       initial={false}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -105,7 +105,7 @@ export default function Navigation() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-white p-2"
+              className="lg:hidden text-gray-900 p-2 z-50"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -122,7 +122,7 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="fixed top-20 left-0 right-0 z-40 bg-black/95 backdrop-blur-md border-b border-cyan-500/20 md:hidden"
+            className="fixed top-16 lg:top-20 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-purple-200 lg:hidden"
           >
             <div className="px-4 py-4 space-y-2">
               {navItems.map((item) => (
@@ -135,8 +135,8 @@ export default function Navigation() {
                   }}
                   className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                     activeSection === item.href.substring(1)
-                      ? "bg-cyan-500/20 text-cyan-400 neon-glow-cyan border border-cyan-400/30"
-                      : "text-gray-300 hover:bg-cyan-500/10 hover:text-cyan-400"
+                      ? "bg-purple-100 text-purple-600 neon-glow-cyan border border-purple-300"
+                      : "text-gray-600 hover:bg-purple-50 hover:text-purple-600"
                   }`}
                   whileHover={{ x: 5 }}
                 >

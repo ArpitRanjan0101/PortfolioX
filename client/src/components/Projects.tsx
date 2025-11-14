@@ -68,7 +68,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <Section id="projects" className="bg-black">
+    <Section id="projects" className="bg-white">
       <motion.div
         variants={staggerContainer}
         initial="initial"
@@ -76,21 +76,21 @@ export default function Projects() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section Header */}
-        <motion.div variants={fadeInUp} className="text-center mb-20">
-          <div className="flex items-center justify-center mb-6">
+        <motion.div variants={fadeInUp} className="text-center mb-12 md:mb-16 lg:mb-20">
+          <div className="flex items-center justify-center mb-4 md:mb-6 flex-wrap gap-2 md:gap-0">
             <span className="section-number">02</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               <span className="gradient-text">Featured Projects</span>
             </h2>
           </div>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             A curated selection of my recent work, showcasing innovative solutions and cutting-edge technologies. 
             Each project represents a unique challenge solved with creativity and technical excellence.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -99,7 +99,7 @@ export default function Projects() {
             >
               <Card className="h-full flex flex-col group cursor-pointer professional-card">
                 {/* Project Image */}
-                <div className="relative w-full h-52 mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-cyan-500/20 via-pink-500/20 to-purple-500/20 border border-cyan-500/20">
+                <div className="relative w-full h-40 sm:h-48 md:h-52 mb-4 md:mb-6 rounded-xl overflow-hidden bg-gradient-to-br from-purple-100 via-purple-50 to-purple-100 border border-purple-200">
                   <div className="absolute inset-0 flex items-center justify-center text-gray-500">
                     <span className="text-sm">Project Image</span>
                   </div>
@@ -134,10 +134,10 @@ export default function Projects() {
 
                 {/* Project Info */}
                 <div className="flex-1 flex flex-col">
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 group-hover:text-purple-600 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 text-sm md:text-base mb-6 flex-1 leading-relaxed">
+                  <p className="text-gray-600 text-sm md:text-base mb-6 flex-1 leading-relaxed">
                     {project.description}
                   </p>
 
@@ -146,7 +146,7 @@ export default function Projects() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs bg-cyan-500/20 text-cyan-300 rounded-full border border-cyan-500/50 shadow-[0_0_5px_rgba(0,245,255,0.3)]"
+                        className="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded-full border border-purple-300 shadow-[0_0_5px_rgba(147,51,234,0.2)]"
                       >
                         {tech}
                       </span>

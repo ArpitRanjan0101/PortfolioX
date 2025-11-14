@@ -14,10 +14,10 @@ interface SectionProps {
 export default function Section({ id, children, className = "", showDivider = true }: SectionProps) {
   return (
     <section id={id} className={`section-padding relative ${className}`}>
-      {/* Section Background Pattern */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,245,255,0.3) 1px, transparent 0)`,
+      {/* Section Background Pattern - Reduced on mobile */}
+      <div className="absolute inset-0 opacity-5 md:opacity-5 pointer-events-none">
+        <div className="absolute inset-0 hidden sm:block" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59,130,246,0.3) 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
       </div>

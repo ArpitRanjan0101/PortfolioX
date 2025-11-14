@@ -70,7 +70,7 @@ export default function Contact() {
   };
 
   return (
-    <Section id="contact" className="bg-gradient-to-b from-black via-pink-950/20 to-black">
+    <Section id="contact" className="bg-gradient-to-b from-white via-purple-50/50 to-white">
       <motion.div
         variants={staggerContainer}
         initial="initial"
@@ -78,25 +78,25 @@ export default function Contact() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section Header */}
-        <motion.div variants={fadeInUp} className="text-center mb-20">
-          <div className="flex items-center justify-center mb-6">
+        <motion.div variants={fadeInUp} className="text-center mb-12 md:mb-16 lg:mb-20">
+          <div className="flex items-center justify-center mb-4 md:mb-6 flex-wrap gap-2 md:gap-0">
             <span className="section-number">05</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               <span className="gradient-text">Let's Connect</span>
             </h2>
           </div>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             Have a project in mind or want to collaborate? I'm always open to discussing new opportunities, 
             innovative ideas, or just having a conversation about technology and design.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <motion.div variants={fadeInUp} className="space-y-6">
+          <motion.div variants={fadeInUp} className="space-y-4 md:space-y-6">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4">Let's Connect</h3>
-              <p className="text-gray-400 mb-8">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">Let's Connect</h3>
+              <p className="text-gray-600 text-sm md:text-base mb-6 md:mb-8">
                 Feel free to reach out through any of these channels. I'm always open to discussing new projects, creative ideas, or opportunities.
               </p>
             </div>
@@ -111,14 +111,14 @@ export default function Contact() {
                   custom={index}
                   whileHover={{ x: 5 }}
                 >
-                  <Card className="hover:border-cyan-500/50 transition-all duration-300 professional-card">
+                  <Card className="hover:border-purple-500/50 transition-all duration-300 professional-card">
                     <div className="flex items-center gap-4">
-                      <div className="p-3 bg-gradient-to-r from-cyan-500/20 to-pink-500/20 rounded-lg">
-                        <info.icon className="text-cyan-400" size={24} />
+                      <div className="p-3 bg-gradient-to-r from-purple-100 to-purple-200 rounded-lg">
+                        <info.icon className="text-purple-600" size={24} />
                       </div>
                       <div>
-                        <p className="text-sm text-gray-400">{info.label}</p>
-                        <p className="text-white font-semibold">{info.value}</p>
+                        <p className="text-sm text-gray-500">{info.label}</p>
+                        <p className="text-gray-900 font-semibold">{info.value}</p>
                       </div>
                     </div>
                   </Card>
@@ -127,8 +127,8 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-            <div className="pt-6">
-              <p className="text-gray-400 mb-4">Follow me on</p>
+              <div className="pt-6">
+              <p className="text-gray-600 mb-4">Follow me on</p>
               <div className="flex gap-4">
                 {socialLinks.map((social) => (
                   <motion.a
@@ -136,11 +136,11 @@ export default function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-full bg-black/40 hover:bg-black/60 border-2 border-cyan-400/30 hover:border-pink-500/70 transition-all duration-300 shadow-[0_0_10px_rgba(0,245,255,0.3)] hover:shadow-[0_0_20px_rgba(255,0,255,0.5)]"
+                    className="p-3 rounded-full bg-white hover:bg-purple-50 border-2 border-purple-200 hover:border-purple-400 transition-all duration-300 shadow-[0_0_10px_rgba(147,51,234,0.2)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]"
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <social.icon size={20} className="text-cyan-400 hover:text-pink-500 transition-colors" />
+                    <social.icon size={20} className="text-purple-600 hover:text-purple-700 transition-colors" />
                   </motion.a>
                 ))}
               </div>
@@ -150,9 +150,9 @@ export default function Contact() {
           {/* Contact Form */}
           <motion.div variants={fadeInUp}>
             <Card className="professional-card">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Name
                   </label>
                   <input
@@ -162,7 +162,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black/40 border-2 border-cyan-400/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/50 transition-all shadow-[0_0_10px_rgba(0,245,255,0.2)] focus:shadow-[0_0_20px_rgba(255,0,255,0.4)]"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
                     placeholder="Your Name"
                   />
                 </div>
@@ -178,7 +178,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black/40 border-2 border-cyan-400/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/50 transition-all shadow-[0_0_10px_rgba(0,245,255,0.2)] focus:shadow-[0_0_20px_rgba(255,0,255,0.4)]"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -194,7 +194,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black/40 border-2 border-cyan-400/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-500/50 transition-all shadow-[0_0_10px_rgba(0,245,255,0.2)] focus:shadow-[0_0_20px_rgba(255,0,255,0.4)]"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -210,7 +210,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)] resize-none"
                     placeholder="Your message here..."
                   />
                 </div>

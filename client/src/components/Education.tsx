@@ -55,7 +55,7 @@ const education: Education[] = [
 
 export default function Education() {
   return (
-    <Section id="education" className="bg-black">
+    <Section id="education" className="bg-white">
       <motion.div
         variants={staggerContainer}
         initial="initial"
@@ -63,40 +63,40 @@ export default function Education() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Section Header */}
-        <motion.div variants={fadeInUp} className="text-center mb-20">
-          <div className="flex items-center justify-center mb-6">
+        <motion.div variants={fadeInUp} className="text-center mb-12 md:mb-16 lg:mb-20">
+          <div className="flex items-center justify-center mb-4 md:mb-6 flex-wrap gap-2 md:gap-0">
             <span className="section-number">04</span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
               <span className="gradient-text">Education & Learning</span>
             </h2>
           </div>
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             My academic foundation and commitment to continuous learning. Education is an ongoing journey 
             that fuels innovation and growth in the ever-evolving tech landscape.
           </p>
         </motion.div>
 
         {/* Education Cards */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
           {education.map((edu, index) => (
             <motion.div key={edu.institution} variants={fadeInUp}>
-              <Card className="h-full hover:border-cyan-500/50 transition-all duration-300 professional-card">
+              <Card className="h-full hover:border-purple-500/50 transition-all duration-300 professional-card">
                 {/* Header */}
                 <div className="flex items-start gap-4 mb-6">
-                  <div className="p-3 bg-gradient-to-r from-cyan-500/20 to-pink-500/20 rounded-xl border border-cyan-500/30">
-                    <GraduationCap className="text-cyan-400" size={28} />
+                  <div className="p-3 bg-gradient-to-r from-purple-100 to-purple-200 rounded-xl border border-purple-300">
+                    <GraduationCap className="text-purple-600" size={28} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                       {edu.degree}
                     </h3>
-                    <p className="text-cyan-400 font-semibold mb-3 neon-glow-cyan text-lg">
+                    <p className="text-purple-600 font-semibold mb-3 neon-glow-cyan text-lg">
                       {edu.field}
                     </p>
-                    <p className="text-lg md:text-xl font-bold text-gray-300 mb-3">
+                    <p className="text-lg md:text-xl font-bold text-gray-700 mb-3">
                       {edu.institution}
                     </p>
-                    <div className="flex items-center gap-2 text-gray-400 text-sm">
+                    <div className="flex items-center gap-2 text-gray-500 text-sm">
                       <Calendar size={16} />
                       <span>{edu.year}</span>
                     </div>
@@ -116,9 +116,9 @@ export default function Education() {
                       {edu.achievements.map((achievement, idx) => (
                         <li
                           key={idx}
-                          className="text-gray-300 text-sm flex items-start gap-2"
+                          className="text-gray-600 text-sm flex items-start gap-2"
                         >
-                          <span className="text-pink-400 mt-1.5">★</span>
+                          <span className="text-purple-500 mt-1.5">★</span>
                           <span>{achievement}</span>
                         </li>
                       ))}
@@ -136,7 +136,7 @@ export default function Education() {
                       {edu.coursework.map((course, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 text-xs bg-pink-500/10 text-pink-300 rounded-full border border-pink-500/30"
+                          className="px-3 py-1 text-xs bg-purple-100 text-purple-700 rounded-full border border-purple-300"
                         >
                           {course}
                         </span>
