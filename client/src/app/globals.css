@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #00f5ff;
+  --primary-dark: #00d4e0;
+  --secondary: #ff00ff;
+  --accent: #ff0080;
+  --tertiary: #00ff88;
+  --purple: #a855f7;
+  --orange: #ff6b35;
+  --gradient-start: #00f5ff;
+  --gradient-mid: #ff00ff;
+  --gradient-end: #ff0080;
+  --neon-cyan: #00f5ff;
+  --neon-pink: #ff00ff;
+  --neon-green: #00ff88;
+  --neon-purple: #a855f7;
 }
 
 @theme inline {
@@ -12,15 +26,222 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-pink), var(--neon-green));
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-pink), var(--neon-green), var(--neon-cyan));
+  box-shadow: 0 0 15px var(--neon-pink);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink), var(--neon-green), var(--neon-purple));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 5s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Neon glow effects */
+.neon-glow-cyan {
+  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+}
+
+.neon-glow-pink {
+  text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink);
+}
+
+.neon-glow-green {
+  text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
+}
+
+/* Glassmorphism effect with neon borders */
+.glass {
+  background: rgba(0, 245, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.1);
+}
+
+.glass:hover {
+  border-color: rgba(255, 0, 255, 0.4);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.2);
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Professional Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* Section Dividers */
+.section-divider {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-pink), transparent);
+  margin: 3rem auto;
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+}
+
+/* Professional Card Enhancements */
+.professional-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.professional-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.professional-card:hover::before {
+  opacity: 1;
+}
+
+/* Section Number Badge */
+.section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+  color: black;
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-right: 1rem;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
+}
+
+/* Professional Spacing */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* Professional Container */
+.professional-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .professional-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .professional-container {
+    padding: 0 3rem;
+  }
 }
