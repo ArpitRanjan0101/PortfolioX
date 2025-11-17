@@ -91,18 +91,17 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <motion.div variants={fadeInUp} className="space-y-4 md:space-y-6">
+          <motion.div variants={fadeInUp} className="space-y-6 md:space-y-7">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">Let's Connect</h3>
-              <p className="text-gray-600 text-sm md:text-base mb-6 md:mb-8">
+              <p className="text-gray-600 text-sm md:text-base mb-10 md:mb-12 leading-relaxed">
                 Feel free to reach out through any of these channels. I'm always open to discussing new projects, creative ideas, or opportunities.
               </p>
             </div>
 
             {/* Contact Info Cards */}
-            <div className="space-y-4">
+            <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.a
                   key={info.label}
@@ -111,14 +110,14 @@ export default function Contact() {
                   custom={index}
                   whileHover={{ x: 5 }}
                 >
-                  <Card className="hover:border-purple-500/50 transition-all duration-300 professional-card">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-gradient-to-r from-purple-100 to-purple-200 rounded-lg">
-                        <info.icon className="text-purple-600" size={24} />
+                  <Card className="hover:border-purple-500/50 transition-all duration-300 professional-card p-5 sm:p-6 md:p-7">
+                    <div className="flex items-center gap-5 md:gap-6">
+                      <div className="p-3.5 md:p-4 bg-gradient-to-r from-purple-100 to-purple-200 rounded-xl flex-shrink-0">
+                        <info.icon className="text-purple-600" size={26} />
                       </div>
-                      <div>
-                        <p className="text-sm text-gray-500">{info.label}</p>
-                        <p className="text-gray-900 font-semibold">{info.value}</p>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs md:text-sm text-gray-500 mb-1 font-medium">{info.label}</p>
+                        <p className="text-sm md:text-base text-gray-900 font-semibold break-words">{info.value}</p>
                       </div>
                     </div>
                   </Card>
@@ -127,20 +126,20 @@ export default function Contact() {
             </div>
 
             {/* Social Links */}
-              <div className="pt-6">
-              <p className="text-gray-600 mb-4">Follow me on</p>
-              <div className="flex gap-4">
+            <div className="pt-10 md:pt-12">
+              <p className="text-gray-600 mb-6 md:mb-7 font-medium text-sm md:text-base">Follow me on</p>
+              <div className="flex gap-4 md:gap-5">
                 {socialLinks.map((social) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-full bg-white hover:bg-purple-50 border-2 border-purple-200 hover:border-purple-400 transition-all duration-300 shadow-[0_0_10px_rgba(147,51,234,0.2)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]"
+                    className="p-3.5 md:p-4 rounded-full bg-white hover:bg-purple-50 border-2 border-purple-200 hover:border-purple-400 transition-all duration-300 shadow-[0_0_10px_rgba(147,51,234,0.2)] hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]"
                     whileHover={{ scale: 1.1, y: -5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <social.icon size={20} className="text-purple-600 hover:text-purple-700 transition-colors" />
+                    <social.icon size={22} className="text-purple-600 hover:text-purple-700 transition-colors" />
                   </motion.a>
                 ))}
               </div>
@@ -149,10 +148,10 @@ export default function Contact() {
 
           {/* Contact Form */}
           <motion.div variants={fadeInUp}>
-            <Card className="professional-card">
-              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+            <Card className="professional-card p-6 sm:p-7 md:p-8">
+              <form onSubmit={handleSubmit} className="space-y-6 md:space-y-7">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm md:text-base font-medium text-gray-700 mb-2.5 md:mb-3">
                     Name
                   </label>
                   <input
@@ -162,13 +161,13 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
+                    className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
                     placeholder="Your Name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm md:text-base font-medium text-gray-700 mb-2.5 md:mb-3">
                     Email
                   </label>
                   <input
@@ -178,13 +177,13 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
+                    className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
                     placeholder="your.email@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm md:text-base font-medium text-gray-700 mb-2.5 md:mb-3">
                     Subject
                   </label>
                   <input
@@ -194,13 +193,13 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
+                    className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)]"
                     placeholder="What's this about?"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm md:text-base font-medium text-gray-700 mb-2.5 md:mb-3">
                     Message
                   </label>
                   <textarea
@@ -209,8 +208,8 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={5}
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)] resize-none"
+                    rows={6}
+                    className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4 bg-white border-2 border-purple-200 rounded-lg text-gray-900 text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all shadow-[0_0_10px_rgba(147,51,234,0.1)] focus:shadow-[0_0_20px_rgba(168,85,247,0.2)] resize-none"
                     placeholder="Your message here..."
                   />
                 </div>
@@ -219,34 +218,36 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-sm"
+                    className="p-4 md:p-5 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-sm md:text-base mb-2"
                   >
                     Message sent successfully! I'll get back to you soon.
                   </motion.div>
                 )}
 
-                <Button
-                  type="submit"
-                  variant="primary"
-                  className="w-full"
-                  onClick={() => {}}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                      />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={20} />
-                      Send Message
-                    </>
-                  )}
-                </Button>
+                <div className="pt-2">
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    className="w-full"
+                    onClick={() => {}}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                        />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send size={20} />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </div>
               </form>
             </Card>
           </motion.div>

@@ -74,33 +74,36 @@ export default function Navigation() {
             </motion.a>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-1">
-              {navItems.map((item) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
-                  className={`relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg ${
-                    activeSection === item.href.substring(1)
-                      ? "text-purple-600 neon-glow-cyan bg-purple-100"
-                      : "text-gray-600 hover:text-purple-600 hover:bg-purple-50"
-                  }`}
-                  whileHover={{ y: -2 }}
-                >
-                  {item.name}
-                  {activeSection === item.href.substring(1) && (
-                    <motion.div
-                      layoutId="activeSection"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-400 shadow-[0_0_10px_rgba(147,51,234,0.4)]"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </motion.a>
-              ))}
+            <div className="hidden lg:flex items-center space-x-4">
+                {navItems.map((item) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    }}
+                    className={`relative px-4 py-2 text-sm font-semibold transition-all duration-300 rounded-lg group ${
+                      activeSection === item.href.substring(1)
+                        ? "text-purple-600 neon-glow-cyan bg-purple-100"
+                        : "text-gray-600"
+                    }`}
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <div className="absolute inset-0 bg-purple-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                    <span className="relative z-10 group-hover:text-black transition-colors duration-200">
+                      {item.name}
+                    </span>
+                    {activeSection === item.href.substring(1) && (
+                      <motion.div
+                        layoutId="activeSection"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-400 shadow-[0_0_10px_rgba(147,51,234,0.4)]"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </motion.a>
+                ))}
             </div>
 
             {/* Mobile Menu Button */}
@@ -133,14 +136,17 @@ export default function Navigation() {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                  className={`relative block px-4 py-3 rounded-lg text-base font-medium transition-colors group ${
                     activeSection === item.href.substring(1)
                       ? "bg-purple-100 text-purple-600 neon-glow-cyan border border-purple-300"
-                      : "text-gray-600 hover:bg-purple-50 hover:text-purple-600"
+                      : "text-gray-600"
                   }`}
-                  whileHover={{ x: 5 }}
+                  whileHover={{ scale: 1.05, x: 5 }}
                 >
-                  {item.name}
+                  <div className="absolute inset-0 bg-purple-50 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                  <span className="relative z-10 group-hover:text-black transition-colors duration-200">
+                    {item.name}
+                  </span>
                 </motion.a>
               ))}
             </div>
